@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/style.css">
+    <title>@yield('titulo')</title>
+</head>
+<body>
+    <header>
+        <div>
+            <h1>Laravel</h1>
+        </div>
+        <div>
+            <a href="/">Home</a>
+            <a href="#">Produtos</a>
+            <a href="sobre">Sobre</a>
+            <a href="#">Contato </a>
+        </div>
+    </header>
+    <main>
+        @yield('conteudo')
+    </main>
+    
+</body>
+</html>
