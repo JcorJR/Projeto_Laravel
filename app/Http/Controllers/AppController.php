@@ -30,7 +30,7 @@ class AppController extends Controller
         'imagem' => 'https://static-00.iconduck.com/assets.00/laravel-icon-249x256-4gdjrenn.png',
         'nome' => 'Forja',
         'texto' => 'Gerenciamento de servidores para aplicativos no DigitalOcean, Vultr, Amazon, Hetzner e muito mais',
-        'preco' => 'A partir de US$ 12,00/mês'
+        'preco' => 'A partir de US$ 120,00/mês'
     ],
     [
         'imagem' => 'https://static-00.iconduck.com/assets.00/laravel-icon-497x512-uwybstke.png',
