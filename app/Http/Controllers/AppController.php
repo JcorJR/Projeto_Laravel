@@ -3,9 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Produto;//Importa a model Produto
 
 class AppController extends Controller
 {
+    public function produtos(){
+        //Captura todos os proudutos da Model
+        $produtos = Produto::all();
+        return view('welcome', ['prods'=>$produtos]);
+    }
     public function sobre(){
         $frame = "(Laravel)";
         $vantagens = ["Sintaxe simples", "Sintaxe concisa", "Sistema modular"];
