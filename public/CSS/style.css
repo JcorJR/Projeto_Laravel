@@ -22,52 +22,102 @@ div a:hover{
     margin: 0;
 }
 
-.container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-        }
-        .card {
-            background-color: #ffffff;
-            border: 1px solid #e0e0e0;
-            border-radius: 10px;
-            width: 250px;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-        .card img {
-            width: 100px;
-            height: auto;
-            margin-bottom: 15px;
-        }
-        .card h3 {
-            font-size: 1.2em;
-            margin-bottom: 10px;
-            color: #000000;
-        }
-        .card p {
-            font-size: 0.95em;
-            color: #666;
-        }
-        .price {
-            margin-top: 15px;
-            font-weight: bold;
-            color: #e63946;
-        }
-        .card button {
-        margin-top: 15px;
-        padding: 10px 20px;
-        background-color: #27a8e4;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-weight: bold;
-        transition: background-color 0.3s ease;
-        }
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+.card{
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 250px;
+    padding: 20px;
+    text-align: center;
+}
+.card img{
+    max-width: 100px;
+    margin-bottom: 15px;
+}
+.card h3{
+    margin: 10px 0;
+}
+.card p{
+    font-size: 14px;
+    color: #555;
+    padding: 10px;
+}
+.card button{
+    background: #e3342f;
+    color: white;
+    border: none;
+    padding: 20px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.card button:hover{
+    background: #cc1f1a;
+}
 
-        .card button:hover {
-        background-color: #0b4b64;
-        }
+.conteudo {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Estilo do formulário */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Estilo dos campos de input */
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="file"] {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="file"]:focus {
+    outline: none;
+    border-color: #4CAF50;
+}
+
+/* Estilo do botão de submit */
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* Estilo de mensagens de erro */
+.error {
+    color: red;
+    font-size: 12px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
