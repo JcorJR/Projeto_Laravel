@@ -6,6 +6,80 @@ use App\Models\Produto;
 
 class AppController extends Controller
 {
+public function logout() {
+    Session::flush();
+    return redirect('/');
+}
+
+public function dashboard() {
+    if (!session()->has('usuario_id')) {
+        return redirect('/frmlogin');
+    }
+    return view('dashboard');
+}
+
+public function frmlogin(){
+    return view('frmlogin');
+}
+
+public function logar(Request $request){
+    $user = Usuario::where('email', $request->email)->first();
+
+    if (!$user || !Hash::check($request->senha, $user->senha)) {
+        return redirect('/frmlogin'); 
+    }
+
+    Session::put('usuario_id', $user->id);
+    Session::put('usuario_nome', $user->nome);
+
+    return view('dashboard');
+}
+public function excluirusuario($id){
+    $usuario = Usuario::findOrFail($id);
+    $usuario->delete();
+    return redirect('usuarios');
+}
+
+public function atualizarusuario(Request $request, $id){
+    $usuario = Usuario::findOrFail($id);
+
+    $dados = [
+        'nome' => $request->fnome,
+        'email' => $request->femail
+    ];
+
+    if(!empty($request->fsenha)){
+        $dados['senha'] = Hash::make($request->$fsenha);
+    }
+
+    $usuario->update($dados);
+
+    return redirect('usuarios');
+}
+
+public function frmeditusuario($id){
+    $usuario = Usuario::findOrFail($id);
+    return view('frmeditusuario',['user'=>$usuario]);
+}
+
+public function addusuario(Request $request){
+    $usuario = new Usuario();
+    $usuario->nome = $request->fnome;
+    $usuario->email = $request->femail;
+    $usuario->senha = Hash::make($request->fsenha);
+    $usuario->save();
+    return redirect('sobre');
+}
+
+public function usuarios(){
+    $usuarios = Usuario::all();
+    return view('usuarios',['users'=>$usuarios]);
+}
+
+public function frmusuario(){
+    return view('frmusuario');
+}
+
 public function addproduto(Request $request){
     $prod = new Produto();
 

@@ -1,5 +1,5 @@
 @extends('template')
-@section('titulo','home')
+@section('titulo','produto')
 
 @section('conteudo')
     <div class = "container">
