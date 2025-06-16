@@ -28,7 +28,7 @@ public function frmproduto(){
 }
 
 public function contatos(){
-    //
+    return view('contatos');
 }
 
 public function produtos(){

@@ -121,3 +121,14 @@ input[type="submit"]:hover {
     margin-top: -10px;
     margin-bottom: 10px;
 }
+
+.contato {
+    width: 600px;
+    padding: 20px;
+    position: absolute;
+    top: 51%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
