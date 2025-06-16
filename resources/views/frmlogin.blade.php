@@ -15,6 +15,11 @@
             <input type="password" id="senha" name="senha" required>
 
             <input type="submit" value="Entrar" class="form-button">
+
+            <p style="margin-top: 15px;">
+    Ainda não tem conta? <a href="/frmusuario" style="color: blue; font-weight: bold;">Cadastre-se aqui</a>
+        </p>
+
         </form>
         </div>
     </div>

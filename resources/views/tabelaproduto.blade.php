@@ -1,6 +1,5 @@
 @extends('template')
-@section('titulo', 'Usuários')
-
+@section('titulo', 'Lista de Produtos')
 @section('conteudo')
 <h2>Lista de Usuários</h2>
 
@@ -31,5 +30,4 @@
         </tbody>
     </table>
 </div>
-
 @endsection

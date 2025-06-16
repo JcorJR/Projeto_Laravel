@@ -1,5 +1,5 @@
 @extends('template')
-@section('titulo','contatos')
+@section('titulo','Contato')
 
 @section('conteudo')
 
