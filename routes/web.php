@@ -13,10 +13,11 @@ Route::post('/addproduto', [AppController::class, 'addproduto']);
 
 Route::get('/frmusuario', [AppController::class, 'frmusuario']);
 Route::post('/addusuario', [AppController::class, 'addusuario']);
-Route::get('/usuarios',[Appcontroller::class, 'usuarios']);
-Route::get('/frmeditusuarios/{id}',[Appcontroller::class, 'frmesitusuarios']);
-Route::put('/atualizarusuario/{id}',[Appcontroller::class, 'atualizarusuarios']);
-Route::delete('/excluirusuario/{id}',[Appcontroller::class, 'excluirusuario']);
+
+Route::get('/usuarios', [AppController::class, 'usuarios']);
+Route::get('/frmeditusuarios/{id}', [AppController::class, 'frmeditusuario']); 
+Route::put('/atualizarusuario/{id}', [AppController::class, 'atualizarusuario']); 
+Route::delete('/excluirusuario/{id}', [AppController::class, 'excluirusuario']);
 
 Route::get('/frmlogin', [AppController::class, 'frmlogin']);
 Route::post('/logar', [AppController::class, 'logar']);

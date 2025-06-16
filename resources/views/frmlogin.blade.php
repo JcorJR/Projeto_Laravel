@@ -2,7 +2,9 @@
 @section('titulo','Login')
 
 @section('conteudo')
-    <div>
+<div class="contato">
+    <div class="contain">    
+        <div>
         <h2>Área Restrita</h2>
         <form action="/logar" method="POST" enctype="multipart/form-data">
             @csrf
@@ -14,5 +16,7 @@
 
             <input type="submit" value="Entrar" class="form-button">
         </form>
+        </div>
     </div>
+</div>
 @endsection

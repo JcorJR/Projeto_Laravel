@@ -1,21 +1,23 @@
-@extends ('template')
-@section('titulo','Add Usuário')
+@extends('template')
+@section('titulo', 'Adicionar Usuário')
+
 @section('conteudo')
-     <div class="conteudo">
-        <div class="contain">
-            <form action="/addproduto" method="POST" enctype="multipart/form-data">
-                @crsf
-                    <label for="nome">Nome</label>
-                    <input type="text" id="fnome" name="fnome" required>
+<div class="contato">
+    <h2 style="margin-bottom: 20px; color: black; text-align: center;">Cadastro de Usuário</h2>
 
-                    <label for="email">E-mail</label>
-                    <input type="email" id="femail" name="femail" required>
+    <form action="/addusuario" method="POST" enctype="multipart/form-data">
+        @csrf
 
-                    <label for="quantidade">Senha</label>
-                    <input type="password" id="fsenha" name="fsenha" required>
+        <label for="fnome">Nome</label>
+        <input type="text" id="fnome" name="fnome" required>
 
-                    <input type="submit" value="Cadastrar">
-            </form>
-        </div>
-    </div>
+        <label for="femail">E-mail</label>
+        <input type="email" id="femail" name="femail" required>
+
+        <label for="fsenha">Senha</label>
+        <input type="password" id="fsenha" name="fsenha" required>
+
+        <input type="submit" value="Cadastrar">
+    </form>
+</div>
 @endsection

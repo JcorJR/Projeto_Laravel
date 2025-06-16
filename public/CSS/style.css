@@ -1,4 +1,4 @@
-header{
+header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -6,14 +6,30 @@ header{
     color: yellow;
     padding: 20px;
 }
+header div a {
+    color: yellow;
+    padding: 0 20px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    border-bottom: 2px solid transparent;
+}
 
-div a{
+header div a:hover {
+    color: #ffd700; /* amarelo mais claro */
+    border-bottom: 2px solid #ffd700;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+div a {
     text-decoration: none;
     color: white;
     padding: 0px 20px;
 }
 
-div a:hover{
+div a:hover {
     text-decoration: overline;
 }
 
@@ -28,14 +44,22 @@ div a:hover{
     gap: 20px;
     justify-content: center;
 }
-.card{
+.card {
     background: white;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border: 2px solid #ccc; /* borda visível cinza clara */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* sombra mais forte */
     width: 250px;
     padding: 20px;
     text-align: center;
+    transition: box-shadow 0.3s ease; /* efeito suave na sombra */
 }
+
+.card:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* sombra ainda mais evidente ao passar mouse */
+    border-color: #ffcc00; /* borda amarela ao hover, opcional */
+}
+
 .card img{
     max-width: 100px;
     margin-bottom: 15px;
@@ -48,18 +72,19 @@ div a:hover{
     color: #555;
     padding: 10px;
 }
-.card button{
-    background: #e3342f;
-    color: white;
+.card button {
+    background: yellow;
+    color: black;
     border: none;
     padding: 20px 15px;
     border-radius: 5px;
     cursor: pointer;
-}
-.card button:hover{
-    background: #cc1f1a;
+    font-weight: bold;
 }
 
+.card button:hover {
+    background: #ffd700; 
+}
 .conteudo {
     width: 100%;
     max-width: 600px;
@@ -69,14 +94,12 @@ div a:hover{
     border-radius: 8px;
 }
 
-/* Estilo do formulário */
 form {
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
-/* Estilo dos campos de input */
 label {
     font-weight: bold;
     margin-bottom: 5px;
@@ -99,22 +122,21 @@ input[type="file"]:focus {
     border-color: #4CAF50;
 }
 
-/* Estilo do botão de submit */
 input[type="submit"] {
-    background-color: #4CAF50;
-    color: white;
+    background-color: yellow;
+    color: black;
     padding: 12px 20px;
     border: none;
     border-radius: 4px;
     font-size: 16px;
+    font-weight: bold;
     cursor: pointer;
 }
 
 input[type="submit"]:hover {
-    background-color: #45a049;
+    background-color: #ffd700;
 }
 
-/* Estilo de mensagens de erro */
 .error {
     color: red;
     font-size: 12px;
@@ -132,3 +154,31 @@ input[type="submit"]:hover {
     background: white;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
+
+.tabela-usuarios {
+    border-collapse: collapse;
+    width: 100%;
+}
+.tabela-usuarios th, .tabela-usuarios td {
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.btn-editar {
+    background-color: yellow;
+    color: black;
+    padding: 8px 12px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.btn-excluir {
+    background-color: red;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+

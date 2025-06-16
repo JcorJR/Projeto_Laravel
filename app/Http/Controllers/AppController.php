@@ -1,84 +1,92 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use App\Models\Produto;
+use App\Models\Usuario;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session; // <-- ADICIONAR ISSO
 
 class AppController extends Controller
 {
-public function logout() {
-    Session::flush();
-    return redirect('/');
-}
-
-public function dashboard() {
-    if (!session()->has('usuario_id')) {
-        return redirect('/frmlogin');
-    }
-    return view('dashboard');
-}
-
-public function frmlogin(){
-    return view('frmlogin');
-}
-
-public function logar(Request $request){
-    $user = Usuario::where('email', $request->email)->first();
-
-    if (!$user || !Hash::check($request->senha, $user->senha)) {
-        return redirect('/frmlogin'); 
+    public function logout() {
+        Session::flush();
+        return redirect('/');
     }
 
-    Session::put('usuario_id', $user->id);
-    Session::put('usuario_nome', $user->nome);
-
-    return view('dashboard');
-}
-public function excluirusuario($id){
-    $usuario = Usuario::findOrFail($id);
-    $usuario->delete();
-    return redirect('usuarios');
-}
-
-public function atualizarusuario(Request $request, $id){
-    $usuario = Usuario::findOrFail($id);
-
-    $dados = [
-        'nome' => $request->fnome,
-        'email' => $request->femail
-    ];
-
-    if(!empty($request->fsenha)){
-        $dados['senha'] = Hash::make($request->$fsenha);
+    public function dashboard() {
+        if (!session()->has('usuario_id')) {
+            return redirect('/frmlogin');
+        }
+        return view('dashboard');
     }
 
-    $usuario->update($dados);
+    public function frmlogin(){
+        return view('frmlogin');
+    }
 
-    return redirect('usuarios');
-}
+    public function logar(Request $request){
+        $user = Usuario::where('email', $request->email)->first();
 
-public function frmeditusuario($id){
-    $usuario = Usuario::findOrFail($id);
-    return view('frmeditusuario',['user'=>$usuario]);
-}
+        if (!$user || !Hash::check($request->senha, $user->senha)) {
+            return redirect('/frmlogin'); 
+        }
 
-public function addusuario(Request $request){
-    $usuario = new Usuario();
-    $usuario->nome = $request->fnome;
-    $usuario->email = $request->femail;
-    $usuario->senha = Hash::make($request->fsenha);
-    $usuario->save();
-    return redirect('sobre');
-}
+        Session::put('usuario_id', $user->id);
+        Session::put('usuario_nome', $user->nome);
 
-public function usuarios(){
-    $usuarios = Usuario::all();
-    return view('usuarios',['users'=>$usuarios]);
-}
+        return view('dashboard');
+    }
 
-public function frmusuario(){
-    return view('frmusuario');
-}
+    public function excluirusuario($id){
+        $usuario = Usuario::findOrFail($id);
+        $usuario->delete();
+        return redirect('usuarios');
+    }
+
+    public function atualizarusuario(Request $request, $id){
+        $usuario = Usuario::findOrFail($id);
+
+        $dados = [
+            'nome' => $request->fnome,
+            'email' => $request->femail
+        ];
+
+        if (!empty($request->fsenha)) {
+            $dados['senha'] = Hash::make($request->fsenha); // <-- CORRIGIDO
+        }
+
+        $usuario->update($dados);
+
+        return redirect('usuarios');
+    }
+
+    public function frmeditusuario($id){
+        $usuario = Usuario::findOrFail($id);
+        return view('frmeditusuario',['user'=>$usuario]);
+    }
+
+    public function addusuario(Request $request){
+        $usuario = new Usuario();
+        $usuario->nome = $request->fnome;
+        $usuario->email = $request->femail;
+        $usuario->senha = Hash::make($request->fsenha);
+        $usuario->save();
+        return redirect('sobre');
+    }
+
+    public function usuarios(){
+        $usuarios = Usuario::all();
+        return view('usuarios',['users'=>$usuarios]);
+    }
+
+    public function frmusuario(){
+        return view('frmusuario');
+    }
+
+
 
 public function addproduto(Request $request){
     $prod = new Produto();
@@ -143,7 +151,6 @@ $cards = [
         'preco' => 'A partir de $ 99,00'
     ]
 ];
-
     return view('home', ['crd'=>$cards]);
 }
 }
