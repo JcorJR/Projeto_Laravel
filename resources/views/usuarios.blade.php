@@ -24,7 +24,7 @@
                 <td>{{ $u->email }}</td>
                 <td class="acoes">
                     <a href="{{ url('/frmeditusuario/' . $u->id) }}" class="btn-editar">Editar</a>
-                    <form action="/excluirproduto/{{ $u->id }}" method="post" onsubmit="return confirm('Tem certeza que deseja excluir este usuário?');">
+                    <form action="/excluirusuario/{{ $u->id }}" method="post" onsubmit="return confirm('Tem certeza que deseja excluir este usuário?');">
                         @csrf
                         @method('delete')
                         <button type="submit" class="btn-excluir">Excluir</button>

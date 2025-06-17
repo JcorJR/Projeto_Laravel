@@ -89,6 +89,17 @@ class AppController extends Controller
         return view('frmusuario');
     }
 
+  public function frmeditproduto($id){
+        $produto = Produto::findOrFail($id);
+        return view('frmeditproduto',['prod'=>$produto]);
+    }
+
+    public function excluirproduto($id){
+        $produto = Produto::findOrFail($id);
+        $produto->delete();
+        return redirect('listaprodutos');
+    }
+
 public function listaprodutos(){
     if (!session()->has('usuario_id')) {
             return redirect('/frmlogin');
@@ -157,17 +168,7 @@ public function sobre(){
 
 public function home() {
     $products = Produto::all();
-
-    $cards = $products->map(function($product) {
-        return [
-            'imagem' => $product->image_url,
-            'nome' => $product->name,
-            'texto' => $product->description,
-            'preco' => $product->price,
-        ];
-    });
-
-    return view('home', ['crd' => $cards]);
+    return view('home', ['crd' => $products]);
 }
 }
 

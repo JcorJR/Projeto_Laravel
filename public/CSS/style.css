@@ -252,6 +252,8 @@ input[type="submit"]:hover {
     padding: 15px 20px;
     text-align: left;
     border-bottom: 1px solid #ddd;
+     max-width: 200px;
+    word-break: break-word;
 }
 
 .tabela-usuarios th {
@@ -269,6 +271,8 @@ input[type="submit"]:hover {
     display: flex;
     gap: 10px;
     align-items: center;
+       flex-wrap: wrap;
+    z-index: 10;
 }
 
 .tabela-usuarios form {
@@ -313,7 +317,7 @@ input[type="submit"]:hover {
 
 .div-add{
     display: flex;
-    justify-content: flex-start;
+    justify-content: flex-end;
     margin-bottom: 20px;
 }
 
@@ -327,6 +331,7 @@ input[type="submit"]:hover {
     transition: background-color 0.3s ease;
     display: inline-block;
     margin-left: 0;
+    
 }
 
 .btn-add:hover {

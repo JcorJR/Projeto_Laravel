@@ -23,7 +23,7 @@
                     <a href="/dashboard">Dashboard</a>
                     <a href="/usuarios">Usuários</a>
                     <a href="/listaprodutos">Produtos</a>
-                    <a href="/frmproduto">Cadastrar Produto</a> 
+                    <a href="/#">Contatos</a>
                     <a href="/logout">Sair</a>
                 </div>
             </div>

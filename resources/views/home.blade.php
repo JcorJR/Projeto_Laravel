@@ -12,11 +12,10 @@
 <div class="container">
     @foreach($crd as $card)
         <div class="card">
-            <img src="{{$card['imagem']}}" alt="Produto">
+            <img src="{{ asset('storage/' . $card->imagem) }}" alt="Imagem do produto" style="width: 100%; height: auto;">
             <h3>{{$card['nome']}}</h3>
             <p>{{$card['texto']}}</p>
-            <div class="preco">{{$card['preco']}}</div>
-            <button>Saiba mais</button>
+            <a href="/produtos" class="btn-editar">Saiba mais</a>
         </div>
     @endforeach
 </div>

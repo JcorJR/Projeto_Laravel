@@ -2,7 +2,7 @@
 @section('titulo','Add produto')
 
 @section('conteudo')
-<div class="conteudo">
+<div class="contato">
     <div class="contain">
         <form action="/addproduto" method="POST" enctype="multipart/form-data">
             @csrf
