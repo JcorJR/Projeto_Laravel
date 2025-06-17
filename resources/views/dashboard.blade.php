@@ -11,16 +11,16 @@
 <div class="container">
     <div class="card">
         <img src="https://img.icons8.com/ios-filled/100/000000/user-group-man-man.png" alt="Usuários">
-        <h3>Listar Usuários</h3>
-        <p>Visualize todos os usuários cadastrados no sistema.</p>
+        <h3>Lista de Usuários</h3>
+        <p>Visualize todos os usuários cadastrados no sistema ou adicione um novo.</p>
         <a href="/usuarios"><button>Acessar</button></a>
     </div>
 
     <div class="card">
-        <img src="https://img.icons8.com/ios-filled/100/000000/add-user-group-man-man.png" alt="Novo Usuário">
-        <h3>Adicionar Usuário</h3>
-        <p>Cadastre um novo usuário para o sistema DaZauto.</p>
-        <a href="/frmusuario"><button>Adicionar</button></a>
+        <img src="https://img.icons8.com/ios-filled/100/000000/clipboard.png" alt="Lista Produto">
+        <h3>Lista de produtos</h3>
+        <p>Vizualize o estoque ou cadastre um novo produto para o sistema DaZauto.</p>
+        <a href="/listaprodutos"><button>Acessar</button></a>
     </div>
 
     <div class="card">

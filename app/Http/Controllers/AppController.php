@@ -78,6 +78,9 @@ class AppController extends Controller
     }
 
     public function usuarios(){
+        if (!session()->has('usuario_id')) {
+            return redirect('/frmlogin');
+        }
         $usuarios = Usuario::all();
         return view('usuarios',['users'=>$usuarios]);
     }
@@ -86,7 +89,32 @@ class AppController extends Controller
         return view('frmusuario');
     }
 
+public function listaprodutos(){
+    if (!session()->has('usuario_id')) {
+            return redirect('/frmlogin');
+        }
+    $listaprodutos = Produto::all(); 
+    return view('listaprodutos',['liprods'=>$listaprodutos]);
+}
 
+public function atualizarproduto(Request $request, $id) {
+    $produto = Produto::findOrFail($id);
+
+    $dados = [
+        'nome' => $request->fnome,
+        'preco' => $request->fpreco,
+        'quantidade' => $request->fquantidade
+    ];
+
+    if ($request->hasFile('fimagem')) {
+        $path = $request->file('fimagem')->store('imagem', 'public');
+        $dados['imagem'] = $path;
+    }
+
+    $produto->update($dados);
+
+    return redirect('listaprodutos');
+}
 
 public function addproduto(Request $request){
     $prod = new Produto();
@@ -96,7 +124,7 @@ public function addproduto(Request $request){
     $prod->quantidade = $request->quantidade;
 
     if($request->hasFile('imagem')){
-        $path = $request->file('imagem'->store('imagem','public'));
+        $path = $request->file('imagem')->store('imagem', 'public');
         $prod->imagem = $path;
     }
 

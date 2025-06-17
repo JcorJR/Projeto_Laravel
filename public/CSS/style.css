@@ -39,7 +39,7 @@ body {
 }
 
 main {
-     padding: 20px 40px;
+    padding: 20px 40px;
 }
 header div a {
     color: yellow;
@@ -208,7 +208,31 @@ input[type="submit"]:hover {
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-/* Estilo para tabela de usuários */
+.contato h2 {
+    color: black;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    border-bottom: 2px solid yellow;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.contato textarea {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+    font-family: Arial, sans-serif;
+    min-height: 100px;
+}
+
+.contato textarea:focus {
+    outline: none;
+    border-color: #4CAF50;
+}
+
 .tabela-usuarios {
     overflow-x: auto;
     margin-top: 20px;
@@ -285,6 +309,28 @@ input[type="submit"]:hover {
 
 .btn-excluir:hover {
     background-color: #cc0000;
+}
+
+.div-add{
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+}
+
+.btn-add {
+    background-color: rgb(0, 255, 0);
+    color: black;
+    padding: 8px 12px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    margin-left: 0;
+}
+
+.btn-add:hover {
+    background-color:rgb(0, 107, 0);
 }
 
 .btn-entrar {

@@ -1,26 +1,23 @@
 @extends('template')
-@section('titulo','Edit usuario')
-@section('conteudo')
+@section('titulo','Editar Usuário')
 
+@section('conteudo')
 <div class="contato">
-    <div class="contain">
-<form action="/atualizarusuario/{{$user->id}}" method="post">
-    @csrf
-    @method('put')
+   
+    <form action="/atualizarusuario/{{$user->id}}" method="post">
+        @csrf
+        @method('put')
+
         <label for="nome">Nome</label>
-        <input type="text" id="nome" name="nome">
+        <input type="text" id="nome" name="nome" value="{{ $user->nome }}" required>
 
         <label for="email">Email</label>
-        <input type="email" id="email" name="email">
+        <input type="email" id="email" name="email" value="{{ $user->email }}" required>
 
-        <label for="assunto">Assunto</label>
-        <input type="text" id="assunto" name="assunto">
-
-        <label for="mensagem">Mensagem</label>
-        <textarea id="mensagem" name="mensagem"></textarea>
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" name="senha" placeholder="{{$user->senha}}">
 
         <input type="submit" value="Atualizar">
-        </form>
-    </div>
+    </form>
 </div>
 @endsection
