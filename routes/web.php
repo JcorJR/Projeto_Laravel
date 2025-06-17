@@ -6,9 +6,12 @@ use App\Http\Controllers\AppController;
 Route::get('/', [Appcontroller::class, 'home']);
 Route::get('/sobre', [Appcontroller::class, 'sobre']);
 Route::get('/produtos', [Appcontroller::class, 'produtos']);
-
 Route::get('/contatos', [Appcontroller::class, 'contatos']);
-Route::get('/listacontatos', [AppController::class,'contato']);
+
+Route::get('/listacontatos', [AppController::class,'listacontatos']);
+Route::get('/responder/{id}', [AppController::class, 'responder']);
+Route::post('/addcontato', [AppController::class, 'addcontato']);
+Route::delete('/excluircontato/{id}', [AppController::class, 'excluir']);
 
 Route::get('/listaprodutos',[Appcontroller::class,'listaprodutos']);
 Route::get('/frmproduto',[AppController::class, 'frmproduto']);

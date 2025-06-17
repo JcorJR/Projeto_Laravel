@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Produto;
 use App\Models\Usuario;
 use App\Models\User;
+use App\Models\Contato;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session; // <-- ADICIONAR ISSO
 
@@ -153,6 +154,37 @@ public function addproduto(Request $request){
     
 public function contatos(){
     return view('contatos');
+}
+
+public function listacontatos() {
+    if (!session()->has('usuario_id')) {
+        return redirect('/frmlogin');
+    }
+
+    $contatos = Contato::all();
+    return view('listacontatos', ['contatos' => $contatos]);
+}
+
+public function addcontato(Request $request){
+    $contato = new Contato();
+    $contato->nome = $request->nome;
+    $contato->email = $request->email;
+    $contato->assunto = $request->assunto;
+    $contato->mensagem = $request->mensagem;
+    $contato->save();
+    return redirect('/contatos');
+}
+
+public function excluir($id) {
+    $contato = Contato::findOrFail($id);
+    $contato->delete();
+
+    return redirect('/contatos')->with('msg', 'Contato excluído com sucesso.');
+}
+
+public function responder($id) {
+    $contato = Contato::findOrFail($id);
+    return view('responder', ['contato' => $contato]);
 }
 
 public function produtos(){

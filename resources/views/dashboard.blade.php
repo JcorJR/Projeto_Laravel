@@ -24,6 +24,13 @@
     </div>
 
     <div class="card">
+        <img src="https://static.vecteezy.com/system/resources/previews/040/460/630/non_2x/people-flat-style-icon-team-work-symbol-group-of-humans-sign-for-your-web-site-design-logo-app-ui-illustration-vector.jpg" alt="Sair">
+        <h3>Lista de Contatos</h3>
+        <p>Lista com todas as mensagens enviadas.</p>
+        <a href="/listacontatos"><button>Acessar</button></a>
+    </div>
+
+    <div class="card">
         <img src="https://img.icons8.com/ios-filled/100/000000/exit.png" alt="Sair">
         <h3>Sair</h3>
         <p>Encerre sua sessão com segurança.</p>
