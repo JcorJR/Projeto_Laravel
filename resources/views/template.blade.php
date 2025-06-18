@@ -52,7 +52,6 @@
         nav.classList.toggle('show');
     });
 
-    // Dropdown touch support
     const contaBtn = document.getElementById('btn-conta');
     const dropdownMenu = document.getElementById('dropdown-menu');
 
@@ -64,7 +63,6 @@
         dropdownMenu.style.display = isDropdownOpen ? 'block' : 'none';
     });
 
-    // Fecha o dropdown se tocar fora
     document.addEventListener('click', (e) => {
         if (!e.target.closest('.dropdown')) {
             dropdownMenu.style.display = 'none';
@@ -75,13 +73,11 @@
         const dropdownBtn = document.querySelector('.dropdown .btn-entrar');
         const dropdown = document.querySelector('.dropdown');
 
-        // Ativa o dropdown com toque/click (além do hover)
         dropdownBtn.addEventListener('click', function (e) {
             e.preventDefault();
             dropdown.classList.toggle('open');
         });
-
-        // Fecha ao clicar fora
+            
         document.addEventListener('click', function (e) {
             if (!dropdown.contains(e.target)) {
                 dropdown.classList.remove('open');
